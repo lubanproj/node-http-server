@@ -1,9 +1,11 @@
 const http = require('http')
+const parse = require('./parse')
 
 const server = http.createServer(function(req, rsp) {
 
     // write http headers
     rsp.writeHead(200, {'Content-Type': 'text-plain'})
+    parse(req, rsp)
     rsp.end('hello world')
 })
 

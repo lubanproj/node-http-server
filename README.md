@@ -8,4 +8,4 @@ cd node-http-server
 node server.js
 ```
 
-visit http://127.0.0.1:8888
+visit http://127.0.0.1:8888/index?foo=bar&hello=world
