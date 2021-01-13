@@ -1,14 +1,22 @@
 const http = require('http')
 const parse = require('./parse')
 
-const server = http.createServer(function(req, rsp) {
 
-    // write http headers
-    rsp.writeHead(200, {'Content-Type': 'text-plain'})
-    parse(req, rsp)
-    rsp.end('hello world')
-})
+function serve(route) {
+    const server = http.createServer(function(req, rsp) {
+        // write http headers
+        rsp.writeHead(200, {'Content-Type': 'text-plain'})
+        // parse params
+        parse(req, rsp)
+        // parse route
+        route(req, rsp)
 
-server.listen(8888)
+        rsp.end('hello world')
+    })
 
-console.log('server is running on http://127.0.0.1:8888')
+    server.listen(8888)
+    console.log('server is running on http://127.0.0.1:8888')
+}
+
+module.exports.serve = serve
+

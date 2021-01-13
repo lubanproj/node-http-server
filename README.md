@@ -8,4 +8,10 @@ cd node-http-server
 node server.js
 ```
 
-visit http://127.0.0.1:8888/index?foo=bar&hello=world
+## Features
+- http server
+- parse url path and params
+- router
+
+visit http://127.0.0.1:8888/aaa?foo=bar&hello=world
+visit http://127.0.0.1:8888/bbb?foo=bar&hello=world
